@@ -1,50 +1,36 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check } from "lucide-react";
+import { Check, Flame, Rocket, Lightbulb } from "lucide-react";
 
 const tiers = [
   {
-    name: "Foundation",
-    subtitle: "For emerging brands",
-    price: "$2,500",
-    period: "/month",
+    name: "AI Starter Ads Pack",
+    icon: Flame,
+    price: "$599",
     features: [
-      "4 cinematic video ads",
-      "Brand strategy session",
-      "Platform optimization",
-      "Monthly performance review",
-      "48-hour turnaround",
+      "19 AI Ad Videos",
+      "15 seconds each",
+      "High-quality production",
+      "Platform-optimized formats",
     ],
   },
   {
-    name: "Growth",
-    subtitle: "For scaling businesses",
-    price: "$5,000",
-    period: "/month",
+    name: "AI Scale Ads Pack",
+    icon: Rocket,
+    price: "$1,199",
     features: [
-      "8 cinematic video ads",
-      "Full creative strategy",
-      "A/B testing frameworks",
-      "Bi-weekly strategy calls",
-      "Priority 24-hour turnaround",
-      "Dedicated creative director",
+      "19 AI Ad Videos",
+      "1 Premium Ad Film (up to 40 sec)",
+      "Full creative direction",
+      "Priority delivery",
     ],
     popular: true,
   },
-  {
-    name: "Enterprise",
-    subtitle: "For market leaders",
-    price: "Custom",
-    period: "",
-    features: [
-      "Unlimited video production",
-      "Full-service creative team",
-      "Real-time collaboration",
-      "Custom AI model training",
-      "White-glove onboarding",
-      "Quarterly brand audits",
-    ],
-  },
+];
+
+const retainerBenefits = [
+  { duration: "3-month retainer", discount: "8% OFF" },
+  { duration: "6-month retainer", discount: "11% OFF" },
 ];
 
 const PricingSection = () => {
@@ -65,15 +51,15 @@ const PricingSection = () => {
             The Investment
           </h2>
           <p className="headline-display text-3xl md:text-4xl lg:text-5xl max-w-2xl mx-auto mb-4">
-            Tiers of Growth
+            Choose Your Pack
           </p>
           <p className="body-light text-muted-foreground max-w-lg mx-auto">
-            Choose the partnership level that matches your ambitions. Every tier is designed to deliver measurable impact.
+            Premium AI-powered video ads designed to scale your brand.
           </p>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto mb-16">
           {tiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -92,23 +78,22 @@ const PricingSection = () => {
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-foreground text-background text-xs font-medium rounded-full tracking-wide">
-                  Most Popular
+                  Best Value
                 </div>
               )}
 
-              <div className="mb-6">
-                <p className="text-sm text-muted-foreground tracking-wider mb-1">
-                  {tier.subtitle}
-                </p>
-                <h3 className="text-xl font-semibold">{tier.name}</h3>
+              <div className="mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                  <tier.icon className="w-5 h-5 text-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold">{tier.name}</h3>
               </div>
 
               <div className="mb-8">
                 <span className="text-4xl font-semibold tracking-tight">{tier.price}</span>
-                <span className="text-muted-foreground text-sm">{tier.period}</span>
               </div>
 
-              <ul className="space-y-4 mb-8 flex-grow">
+              <ul className="space-y-4">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -118,17 +103,36 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={tier.popular ? "btn-pill w-full" : "btn-pill-outline w-full"}
-              >
-                {tier.price === "Custom" ? "Contact Us" : "Get Started"}
-              </motion.button>
             </motion.div>
           ))}
         </div>
+
+        {/* Retainer Advantage */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="glass-card p-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Lightbulb className="w-5 h-5 text-foreground" />
+              <h3 className="text-lg font-semibold">Retainer Advantage</h3>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {retainerBenefits.map((benefit) => (
+                <div 
+                  key={benefit.duration}
+                  className="px-6 py-4 bg-secondary/50 rounded-2xl"
+                >
+                  <p className="text-sm text-muted-foreground mb-1">{benefit.duration}</p>
+                  <p className="text-xl font-semibold text-foreground">{benefit.discount}</p>
+                  <p className="text-xs text-muted-foreground mt-1">on both packs</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
