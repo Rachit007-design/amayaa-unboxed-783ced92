@@ -20,13 +20,16 @@ const Navigation = () => {
         </a>
 
         {/* CTA Button */}
-        <motion.button
+        <motion.a
+          href="https://cal.com/archit-bhardwaj-mrhm7b/30min"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="btn-pill text-sm tracking-wide"
         >
           Get Started
-        </motion.button>
+        </motion.a>
       </nav>
     </motion.header>
   );
