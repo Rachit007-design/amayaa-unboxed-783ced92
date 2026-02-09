@@ -41,7 +41,7 @@ const VideoFrame = ({ src, className = "", showAudioToggle = false, delay = 0 }:
         loop
         muted={isMuted}
         playsInline
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover scale-[1.5]"
       />
       
       {showAudioToggle && (
