@@ -137,7 +137,7 @@
   }
   
   .video-frame:hover {
-    transform: scale(1.02);
+    transform: scale(1.015);
     box-shadow: 
       0 35px 60px -15px rgba(0, 0, 0, 0.2),
       0 0 0 0.5px rgba(0, 0, 0, 0.08);
@@ -145,26 +145,40 @@
   
   /* Pill button */
   .btn-pill {
-    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300 tracking-wide text-sm;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 20px -4px rgba(29, 29, 31, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    pointer-events: none;
   }
   
   .btn-pill:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 40px -10px rgba(29, 29, 31, 0.4);
+    box-shadow: 0 12px 40px -8px rgba(29, 29, 31, 0.45);
   }
   
   .btn-pill-outline {
-    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300 tracking-wide text-sm;
     background: transparent;
     color: hsl(var(--foreground));
-    border: 1px solid hsl(var(--border));
+    border: 1.5px solid hsl(var(--foreground) / 0.15);
+    position: relative;
   }
   
   .btn-pill-outline:hover {
     background: hsl(var(--secondary));
-    border-color: transparent;
+    border-color: hsl(var(--foreground) / 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.12);
   }
   
   /* Section container */
@@ -214,9 +228,15 @@
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    opacity: 0.04;
     pointer-events: none;
     z-index: 1;
+  }
+
+  /* Subtle dot texture for depth */
+  .texture-dots {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.03) 1px, transparent 0);
+    background-size: 32px 32px;
   }
 }
 

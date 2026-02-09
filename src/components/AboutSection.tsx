@@ -40,9 +40,8 @@ const AboutSection = () => {
           <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-6">
             The Amayaa Way
           </h2>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-foreground">We don't create content, we engineer cultural moments. Through the fusion of cutting-edge AI and human artistry, we transform brands into movements that resonate, convert, and endure.<span className="font-medium">cultural moments</span>. 
-            Through the fusion of cutting-edge AI and human artistry, we transform brands into 
-            movements that resonate, convert, and endure.
+          <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-foreground">
+            Our AI-powered workflows compress production timelines, reduce operational costs, and eliminate creative guesswork—so your brand moves faster, scales smarter, and stays culturally relevant without burning budgets.
           </p>
         </motion.div>
 
