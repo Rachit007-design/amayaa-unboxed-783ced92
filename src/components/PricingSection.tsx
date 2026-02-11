@@ -63,8 +63,8 @@ const PricingSection = () => {
           <p className="headline-display text-3xl md:text-4xl lg:text-5xl max-w-2xl mx-auto mb-4">
             Choose Your Plan
           </p>
-          <p className="body-light text-muted-foreground max-w-lg mx-[222px] py-0 px-0">Premium AI-powered content packages designed
-to scale your brand.
+          <p className="body-light text-muted-foreground max-w-lg px-0 py-[2px] my-0 mx-[217px]">Premium AI-powered content packages designed
+to scale your brand
           </p>
         </motion.div>
 
