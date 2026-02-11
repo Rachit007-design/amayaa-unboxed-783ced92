@@ -35,7 +35,7 @@ const ShowcaseSection = () => {
             <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
               The Work
             </h2>
-            <p className="headline-display text-3xl md:text-4xl lg:text-5xl max-w-2xl mx-auto">Cinematic Content
+            <p className="headline-display text-3xl md:text-4xl lg:text-5xl max-w-2xl mx-auto">Cinematic Content 
 That Converts
             </p>
           </div>
